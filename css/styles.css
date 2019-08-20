@@ -111,7 +111,7 @@ button {
 
 .show {
   color: #fff;
-  background-color: #4ac0d5;
+  background-color: #87ceeb;/*#4ac0d5;*/
   font-size: 20px;
   height: 65px;
   width: 65px;
@@ -138,8 +138,8 @@ button {
 }
 
 .wrong {
-  background: #f7a964;
-  color: #FFFFFF;
+    background: #8B0000; /*#f7a964;*/
+    color: #FFFFFF;
 }
 
 .btn__reset {
@@ -176,7 +176,7 @@ button {
 }
 
 .title {
-  color: #FFF;
+    color: #FFF;
 }
 
 .start {

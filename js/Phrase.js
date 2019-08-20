@@ -1,11 +1,11 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * Phrase.js */
+
 /*** 
     URL for website used to get phrases:
     https://www.phrases.org.uk/meanings/phrases-and-sayings-list.html
 ***/
-
 class Phrase {
     constructor(phrase) {
         this.phrase = phrase;
@@ -30,7 +30,7 @@ class Phrase {
     /**
      * Loops through phrase comparing each letter to letter received. If, at any point, the letters match it returns true. otherwise, it
      * exits the loops and returns false
-     * @param {any} letter
+     
      */
     checkLetter(letter) {
         for (let i = 0; i < this.phrase.length; i += 1) {

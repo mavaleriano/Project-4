@@ -49,13 +49,17 @@ class Game {
         $('#scoreboard ol').append($('<li class="tries" id ="lost-lives"><img src="images/lostHeart.png" alt="Lost Heart Icon" height="35" width="30"></li>'));
 
         if (livesLeft === 0) {
-            this.gameOver(this.checkForWin());
+            $('#phrase').after($(`<p class="answer"><strong>CORRECT ANSWER:</strong> "${this.activePhrase.phrase}"</p>`));
+            setTimeout(() => {
+                this.gameOver(this.checkForWin())
+            }, 5000);
+            
         }
 
     }
 
     gameOver(gameWon) {
-
+        $('p').remove();
         $startGame.show();
         if (gameWon) {
             $('#game-over-message').html('<strong>GREAT</strong> job!');
@@ -79,24 +83,27 @@ class Game {
     /***
         URL used to reference how to get innertext
         https://stackoverflow.com/questions/37887219/how-to-get-the-text-html-value-from-event-target-using-jquery
+        URL used to use setTimeout:
+        https://javascript.info/settimeout-setinterval
     ***/
     handleInteraction(button) {
+        //console.log(button);
         let letter = button.innerText;
         button.disabled = true;
-        //button.style.color = 'red';
         if (this.activePhrase.checkLetter(letter)) {
             $(button).addClass('chosen');
             this.activePhrase.showMatchedLetter(letter);
-            console.log('Good job!');
+            //console.log('Good job!');
             if (this.checkForWin()) {
                 setTimeout(() => this.gameOver(true), 2000);
-                
             }
         }
         else {
-            $(button).addClass('wrong');
-            this.removeLife();
+            //console.log('Oops!');
+            if (!$(button).hasClass('wrong')) {
+                $(button).addClass('wrong');
+                this.removeLife();
+            }
         }
-        //console.log(letter);
     }
 }
