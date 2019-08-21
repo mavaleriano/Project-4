@@ -11,6 +11,13 @@ class Phrase {
         this.phrase = phrase;
     }
 
+
+    /**
+     * Captures the parent element of phrase about to be added
+     * Creates regex to differentiate between letters and spaces
+     * Loops through the phrase, whenever its a letter it creates a hidden letter class
+     * Otherwise creates a space
+     */
     addPhraseToDisplay() {
         const $phraseLetters = $('.section ul');
         const regex = /[a-z]/i;
@@ -27,10 +34,10 @@ class Phrase {
         }
     }
 
+
     /**
      * Loops through phrase comparing each letter to letter received. If, at any point, the letters match it returns true. otherwise, it
      * exits the loops and returns false
-     
      */
     checkLetter(letter) {
         for (let i = 0; i < this.phrase.length; i += 1) {
@@ -41,9 +48,10 @@ class Phrase {
         }
         return false;
     }
+
+
     /**
      * Captures the associated letter, removes the hide class and adds the show class: displays letter on game
-     * @param {any} letter
      */
     showMatchedLetter(letter) {
         $(`li.hide.letter.${letter}`).removeClass('hide').addClass('show');
